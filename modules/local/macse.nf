@@ -8,7 +8,8 @@ process MACSE {
 
     input:
     tuple val(sample_id), path(fasta) //, val(meta)
-    
+    val macse_program
+
     output:
     tuple val(sample_id), path("*NT.fasta"), emit: nt_fasta
     tuple val(sample_id), path("*AA.fasta"), emit: aa_fasta
@@ -17,22 +18,17 @@ process MACSE {
     script:
 
     specific_argumenent = ""
-    if (params.macse_program == "refine"){
-        specific_argumenent = "-prog refineAlignment -align ${fasta} -stop ${params.macse_stop}"
-    }else if (params.macse_program == "refineLemmon"){
-        specific_argumenent = "-prog refineAlignment -align ${fasta} \
-        -optim ${params.macse_refine_alignment_optim} \
-        -local_realign_init ${params.macse_refine_alignment_local_realign_init} \
-        -local_realign_dec ${params.macse_refine_alignment_local_realign_dec} \
-        -fs ${params.macse_refine_alignment_fs}"
-    }else if (params.macse_program == "export"){
-        specific_argumenent = "-prog exportAlignment -align ${fasta} -stop ${params.macse_stop}"
-    }else if (params.macse_program == "align"){
-        specific_argumenent = "-prog alignSequences -seq_lr ${fasta} -stop_lr ${params.macse_stop}"
+    if (macse_program == "refine"){
+        specific_argumenent = "-align ${fasta} ${task.ext.args_refine} "
+    }else if (macse_program == "refineLemmon"){
+        specific_argumenent = " -align ${fasta} ${task.ext.args_refineLemmon} "
+    }else if (macse_program == "export"){
+        specific_argumenent = " -align ${fasta} ${task.ext.args_export} "
+    }else if (macse_program == "align"){
+        specific_argumenent = " -seq_lr ${fasta} ${task.ext.args_align} "
     }
     """
-    macse \
-    ${specific_argumenent}
+    macse ${specific_argumenent}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

@@ -34,7 +34,7 @@ process IQTREE {
                 rand1=\$[ ( \$RANDOM % 1000 )  + 1 ]
                 rand2=\$[ ( \$RANDOM % 1000 )  + 1 ]
                 
-                raxmlHPC -x \$rand1 -# ${params.raxml_runs} -p \$rand2 -m GTRCAT -f a -n \${locus} -s \${fasta}
+                raxmlHPC -x \$rand1 -# ${params.raxml_runs} -p \$rand2 ${task.ext.args} -n \${locus} -s \${fasta}
                 
             fi
         else

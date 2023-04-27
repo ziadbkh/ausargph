@@ -17,13 +17,13 @@ process PARSE_BLAT_RESULTS {
     
     """
     parse_blat.py \
-    --query ${query} \
-    --sample-to-probes ${sample_to_probes} \
-    --probes-to-sample ${probes_to_sample} \
-    --evalue ${params.blat_parser_evalue} \
-    --match ${params.blat_parser_match} \
-    --output-file ${sample_id}_matches.csv \
-    --sample ${sample_id}
+        --query ${query} \
+        --sample-to-probes ${sample_to_probes} \
+        --probes-to-sample ${probes_to_sample} \
+        --evalue ${params.blat_parser_evalue} \
+        --match ${params.blat_parser_match} \
+        --output-file ${sample_id}_matches.csv \
+        --sample ${sample_id} ${task.ext.args}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

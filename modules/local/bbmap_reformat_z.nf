@@ -17,9 +17,7 @@ process BBMAP_REFORMAT_Z {
     """
     for fasta in ${fasta_ls.join(' ')}; do
         file_base_name="\$(basename -- "\$fasta")"
-        reformat.sh in=\${fasta} \
-        out=\${file_base_name}.fasta \
-        ${task.ext.args}
+        reformat.sh in=\${fasta} out=\${file_base_name}.fasta  ${task.ext.args}
     done
 
     cat <<-END_VERSIONS > versions.yml

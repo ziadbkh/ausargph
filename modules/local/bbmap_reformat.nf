@@ -17,8 +17,9 @@ process BBMAP_REFORMAT {
     
     """
     reformat.sh in=${fastq} \
-    out1=${sample_id}_R1_reformated.${params.fastq_suffix}.gz \
-    out2=${sample_id}_R2_reformated.${params.fastq_suffix}.gz
+        out1=${sample_id}_R1_reformated.${params.fastq_suffix}.gz \
+        out2=${sample_id}_R2_reformated.${params.fastq_suffix}.gz \
+        ${task.ext.args}
     
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

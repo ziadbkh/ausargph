@@ -22,15 +22,12 @@ process BBMAP_DEDUPE {
     input = "in=${fastq_r1} in2=${fastq_r2}"
     
     """
-    dedupe.sh ${input} \
-    out=${sample_id}_deduped.${task.ext.fastq_suffix}.gz \
-    outd=${sample_id}_duplicates.${task.ext.fastq_suffix}.gz \
-    ${task.ext.args} \
-    threads=${task.cpus} 
+    dedupe.sh ${input}  out=${sample_id}_deduped.${task.ext.fastq_suffix}.gz outd=${sample_id}_duplicates.${task.ext.fastq_suffix}.gz ${task.ext.args} threads=${task.cpus} 
     
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         BBMAP - dedupe.sh: \$(dedupe.sh -version 2>&1 | sed -n '2 p' | sed 's/BBMap version //g')
     END_VERSIONS
+    
     """
 }

@@ -19,7 +19,7 @@ process PEAR {
 	script:
     
     """
-    pear -f ${fastq_r1} -r ${fastq_r2} -o ${sample_id} -j ${params.pear_threads}
+    pear -f ${fastq_r1} -r ${fastq_r2} -o ${sample_id} -j ${task.cpus} ${task.ext.args}
     gzip  *.fastq
     
     cat <<-END_VERSIONS > versions.yml

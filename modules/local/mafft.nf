@@ -17,11 +17,7 @@ process MAFFT {
     """
     for fasta in ${fasta_ls.join(' ')}; do
         f_out="\$(basename -- "\$fasta" | sed 's/\\(.*\\)\\..*/\\1/')"
-        mafft \
-        --maxiterate ${params.mafft_maxiterate} \
-        --globalpair \
-        --adjustdirection \
-        --quiet \${fasta} > \${f_out}.fasta.aln
+        mafft \${fasta} > \${f_out}.fasta.aln  ${task.ext.args}
 
     done
 

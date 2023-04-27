@@ -11,10 +11,13 @@ WorkflowAusargph.initialise(params, log)
 // TODO nf-core: Add all file path parameters for the pipeline to the list below
 
 // Check input path parameters to see if they exist
-def checkPathParamList = [ params.input, params.reference_genome ]
+def checkPathParamList = [ params.input, params.reference_genome, params.blat_db ]
 for (param in checkPathParamList) { if (param) { file(param, checkIfExists: true) } }
+
 // Check mandatory parameters
-if (params.input) { ch_input = file(params.input) } else { exit 1, 'Input samplesheet not specified!' }
+//if (params.input) { ch_input = file(params.input) } else { exit 1, 'Input directory is not specified!' }
+//if (params.meta) { ch_input = file(params.input) } else { exit 1, 'Input directory is not specified!' }
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     CONFIG FILES
@@ -27,12 +30,11 @@ if (params.input) { ch_input = file(params.input) } else { exit 1, 'Input sample
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-include { INPUT_CHECK } from '../subworkflows/local/input_check'
-include { TESTING } from '../modules/local/testing'
-
-include { PREPARE_ADAPTOR } from '../modules/local/prepare_adaptor'
-include { PREPARE_SAMPLESHEET } from '../modules/local/prepare_samplesheet'
 include { BBMAP_DEDUPE } from '../modules/local/bbmap_dedupe'
+include { PREPARE_ADAPTOR } from '../modules/local/prepare_adaptor'
+include { TESTING } from '../modules/local/testing'
+include { INPUT_CHECK } from '../subworkflows/local/input_check'
+include { PREPARE_SAMPLESHEET } from '../modules/local/prepare_samplesheet'
 include { BBMAP_REFORMAT } from '../modules/local/bbmap_reformat'
 include { TRIMMOMATIC } from '../modules/local/trimmomatic'
 include { PEAR } from '../modules/local/pear'
@@ -58,6 +60,7 @@ include { CONVERT_PHYML } from '../modules/local/convert_phyml'
 include { RAXML } from '../modules/local/raxml'
 include { SED } from '../modules/local/check_me_sed'
 include { BBMAP_REFORMAT_Z } from '../modules/local/bbmap_reformat_z.nf'
+
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     IMPORT NF-CORE MODULES/SUBWORKFLOWS
@@ -84,6 +87,10 @@ workflow AUSARGPH {
     // SUBWORKFLOW: Read in samplesheet, validate and stage input files
     //
     
+    //zz = { check_max( params.bbmap_filter_cpus    * task.attempt, 'cpus' ) }
+        
+    //println zz;
+
     Channel
         .fromPath(params.reference_genome, checkIfExists:true)
         .collect()
@@ -105,7 +112,7 @@ workflow AUSARGPH {
         .set{ch_fastq_lanes}
 
         Channel
-        .fromPath(file(params.meta))
+        .fromPath(params.meta)
         .splitCsv(header:true, strip:true)
         .map {row -> tuple(row.sample_id, tuple(row.genus, row.species, row.library_id, row.sample_id)) }
         .set{ch_meta}
@@ -137,8 +144,6 @@ workflow AUSARGPH {
     //ch_meta.view()
     //println("dfdfdf");
     //ch_lineage.view()
-    
-
     PREPARE_ADAPTOR( ch_meta )
     .adaptor
     .set{ adaptor_ch }
@@ -146,7 +151,8 @@ workflow AUSARGPH {
     BBMAP_DEDUPE( ch_prepared_fastq )
     .deduplicates
     .set{ deduplicates_ch }
-
+    
+    
     BBMAP_REFORMAT( deduplicates_ch )
     .reformated_fastq
     .set{ reformated_ch }
@@ -343,6 +349,9 @@ workflow AUSARGPH {
     }else if (params.tree_method == 'iqtree'){
         ch_all_trees = RAXML.out.tree_bipartitions
     }
+
+
+
 
 
  /*   

@@ -20,8 +20,9 @@ process BLAT {
     input = switch_input ? "${db_path}  ${fasta}" : "${fasta} ${db_path}" 
     """
     blat ${input} \
-    ${sample_id}_${suffix} \
-    -out=blast8
+        ${sample_id}_${suffix} \
+        ${task.ext.args}
+
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         blat: \$(blat | sed -n '1 p')

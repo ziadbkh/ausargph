@@ -51,7 +51,7 @@
             "properties": {
                 "phylogeny_make_alignments_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -92,7 +92,7 @@
             "properties": {
                 "trinity_postprocessing_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -133,7 +133,7 @@
             "properties": {
                 "trimmomatic_clean_pe_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -174,7 +174,7 @@
             "properties": {
                 "trimmomatic_clean_se_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -215,7 +215,7 @@
             "properties": {
                 "prepare_samplesheet_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -256,7 +256,7 @@
             "properties": {
                 "parse_blat_results_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -297,7 +297,7 @@
             "properties": {
                 "quality_2_assembly_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -338,7 +338,7 @@
             "properties": {
                 "samplesheet_check_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -379,7 +379,7 @@
             "properties": {
                 "bbmap_reformat_z_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -420,7 +420,7 @@
             "properties": {
                 "prepare_adaptor_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -485,7 +485,7 @@
                 },
                 "bbmap_reformat_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -526,7 +526,7 @@
             "properties": {
                 "convert_phyml_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -567,7 +567,7 @@
             "properties": {
                 "preprocessing_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -608,7 +608,7 @@
             "properties": {
                 "bbmap_dedupe_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -648,8 +648,8 @@
             "help_text": "",
             "properties": {
                 "bbmap_filter_minid": {
-                    "type": "string",
-                    "default": "0.75",
+                    "type": "number",
+                    "default": 0.75,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -665,7 +665,7 @@
                 },
                 "bbmap_filter_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -706,7 +706,7 @@
             "properties": {
                 "perl_cleanup_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -747,7 +747,7 @@
             "properties": {
                 "concatenate_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -788,7 +788,7 @@
             "properties": {
                 "merge_trees_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -877,7 +877,7 @@
                 },
                 "trimmomatic_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -918,7 +918,7 @@
             "properties": {
                 "make_prg_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -959,7 +959,7 @@
             "properties": {
                 "gblocks_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1000,7 +1000,7 @@
             "properties": {
                 "testing_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1073,7 +1073,7 @@
                 },
                 "trinity_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1114,7 +1114,7 @@
             "properties": {
                 "iqtree_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1155,7 +1155,7 @@
             "properties": {
                 "aster_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1204,7 +1204,7 @@
                 },
                 "macse_program": {
                     "type": "string",
-                    "default": "\"refineLemmon\"",
+                    "default": "refineLemmon",
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1219,16 +1219,16 @@
                     "hidden": true
                 },
                 "macse_refine_alignment_local_realign_init": {
-                    "type": "string",
-                    "default": "0.1",
+                    "type": "number",
+                    "default": 0.1,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "macse_refine_alignment_local_realign_dec": {
-                    "type": "string",
-                    "default": "0.1",
+                    "type": "number",
+                    "default": 0.1,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1242,9 +1242,33 @@
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
-                "macse_args": {
+                "macse_args_refine": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
+                "macse_args_refineLemmon": {
+                    "type": "string",
+                    "default": null,
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
+                "macse_args_export": {
+                    "type": "string",
+                    "default": null,
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
+                "macse_args_align": {
+                    "type": "string",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1293,7 +1317,7 @@
                 },
                 "mafft_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1342,7 +1366,7 @@
                 },
                 "raxml_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1390,8 +1414,8 @@
                     "hidden": true
                 },
                 "blat_parser_evalue": {
-                    "type": "string",
-                    "default": "1e-10",
+                    "type": "number",
+                    "default": 1e-10,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1399,7 +1423,7 @@
                 },
                 "blat_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1448,7 +1472,7 @@
                 },
                 "pear_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1489,7 +1513,7 @@
             "properties": {
                 "sed_args": {
                     "type": "string",
-                    "default": "null",
+                    "default": null,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",

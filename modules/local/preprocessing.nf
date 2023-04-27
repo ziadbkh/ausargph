@@ -15,9 +15,9 @@ process PREPROCESSING {
 
     script: // This script is bundled with the pipeline, in nf-core/ausargph/bin/
     """
-    check_samplesheet.py \\
-        $samplesheet \\
-        samplesheet.valid.csv
+    check_samplesheet.py \
+        $samplesheet \
+        samplesheet.valid.csv ${task.ext.args}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

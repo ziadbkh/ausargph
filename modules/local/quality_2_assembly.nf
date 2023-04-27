@@ -18,11 +18,11 @@ process QUALITY_2_ASSEMBLY {
     
     """
     quality_2_assembly.py \
-    --lineage ${lineage} \
-    --prg-file ${rgp_file} \
-    --sample-fasta ${sample_fasta} \
-    --output-dir ./ \
-    --sample ${sample_id}
+        --lineage ${lineage} \
+        --prg-file ${rgp_file} \
+        --sample-fasta ${sample_fasta} \
+        --output-dir ./ \
+        --sample ${sample_id} ${task.ext.args}
     
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

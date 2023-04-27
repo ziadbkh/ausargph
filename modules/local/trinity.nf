@@ -15,18 +15,15 @@ process TRINITY {
 
 
     script:
-    normalize_reads = params.trinity_normalize_reads ? "--normalize_reads" : ""
     """
     Trinity \
-    ${normalize_reads} \
-    --seqType fq \
-    --max_memory ${params.trinity_mem}G \
-    --left ${fastq1} \
-    --right ${fastq2} \
-    --CPU ${params.trinity_threads} \
-    --output ${sample_id}_trinity \
-    --NO_SEQTK
-    
+        --max_memory ${task.memory.toGiga()}G \
+        --left ${fastq1} \
+        --right ${fastq2} \
+        --CPU ${task.cpus} \
+        --output ${sample_id}_trinity \
+        ${task.ext.args}
+        
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
         Trinity: \$(Trinity --version | sed -n '1 p' | sed 's/Trinity version: //g')

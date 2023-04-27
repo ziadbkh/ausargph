@@ -17,9 +17,7 @@ process SED {
     """
     for fasta in ${fasta_ls.join(' ')}; do
         file_base_name="\$(basename -- "\$fasta")"
-        sed \
-        -r 's/\s+//g' \
-        \${fasta} | sed -r 's/_R_//g' > \${file_base_name}.sed.fasta
+        sed -r 's/\s+//g'  \${fasta} | sed -r 's/_R_//g' > \${file_base_name}.sed.fasta  ${task.ext.args}
     done
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

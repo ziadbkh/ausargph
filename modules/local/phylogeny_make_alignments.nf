@@ -17,9 +17,9 @@ process PHYLOGENY_MAKE_ALIGNMENTS {
     script:
     """
     phylogeny_make_alignments.py \
-    --lineage-list ${lineage_list.join(" ")} \
-    --minsamp ${params.minsamp} \
-    --output-dir ./ 
+        --lineage-list ${lineage_list.join(" ")} \
+        --minsamp ${params.minsamp} \
+        --output-dir ./  ${task.ext.args}
     
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

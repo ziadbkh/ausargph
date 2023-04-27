@@ -19,18 +19,14 @@ process TRIMMOMATIC_CLEAN_PE {
     
     """
     trimmomatic PE \
-    -threads ${params.trimmomatic_clean_threads} \
-    -phred33 \
-    ${fastq1} \
-    ${fastq2} \
-    ${sample_id}_R1_paired_trimmed_cleaned.${params.fastq_suffix}.gz \
-    ${sample_id}_R1_unpaired_trimmed_cleaned.${params.fastq_suffix}.gz \
-    ${sample_id}_R2_paired_trimmed_cleaned.${params.fastq_suffix}.gz \
-    ${sample_id}_R2_unpaired_trimmed_cleaned.${params.fastq_suffix}.gz \
-    LEADING:${params.trimmomatic_clean_head} \
-    TRAILING:${params.trimmomatic_clean_trail} \
-    SLIDINGWINDOW:4:${params.trimmomatic_clean_qual} \
-    MINLEN:${params.trimmomatic_clean_minlength}
+        -threads  ${task.cpus} \
+        ${fastq1} \
+        ${fastq2} \
+        ${sample_id}_R1_paired_trimmed_cleaned.${params.fastq_suffix}.gz \
+        ${sample_id}_R1_unpaired_trimmed_cleaned.${params.fastq_suffix}.gz \
+        ${sample_id}_R2_paired_trimmed_cleaned.${params.fastq_suffix}.gz \
+        ${sample_id}_R2_unpaired_trimmed_cleaned.${params.fastq_suffix}.gz \
+        ${task.ext.args}
     
 
     cat <<-END_VERSIONS > versions.yml

@@ -18,15 +18,10 @@ process TRIMMOMATIC_CLEAN_SE {
     
     """
     trimmomatic SE \
-    -threads ${params.trimmomatic_clean_threads} \
-    -phred33 \
-    ${fastq} \
-    ${sample_id}_unpaired_trimmed_cleaned_se.${params.fastq_suffix}.gz \
-    LEADING:${params.trimmomatic_clean_head} \
-    TRAILING:${params.trimmomatic_clean_trail} \
-    SLIDINGWINDOW:4:${params.trimmomatic_clean_qual} \
-    MINLEN:${params.trimmomatic_clean_minlength}
-    
+        -threads ${task.cpus} \
+        ${fastq} \
+        ${sample_id}_unpaired_trimmed_cleaned_se.${params.fastq_suffix}.gz \
+        ${task.ext.args}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

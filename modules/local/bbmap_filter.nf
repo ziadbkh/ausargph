@@ -25,10 +25,10 @@ tag "$sample_id"
     
     """
     bbmap.sh in1=${fastq_r1} in2=${fastq_r2} \
-    ref=${reference_genome} \
-    outm1=${sample_id}_R1_bbmap.${params.fastq_suffix}.gz \
-    outm2=${sample_id}_R2_bbmap.${params.fastq_suffix}.gz \
-    -Xmx${task.memory} ${task.ext.args} threads=${task.cpus}
+        ref=${reference_genome} \
+        outm1=${sample_id}_R1_bbmap.${params.fastq_suffix}.gz \
+        outm2=${sample_id}_R2_bbmap.${params.fastq_suffix}.gz \
+        -Xmx${task.memory.toGiga()}g ${task.ext.args} threads=${task.cpus}
 						
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

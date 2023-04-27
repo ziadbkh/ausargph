@@ -15,8 +15,8 @@ process SAMPLESHEET_CHECK {
 
     script: // This script is bundled with the pipeline, in nf-core/ausargph/bin/
     """
-    check_samplesheet.py \\
-        $samplesheet \\
+    check_samplesheet.py \
+        $samplesheet \
         samplesheet.valid.csv
 
     cat <<-END_VERSIONS > versions.yml

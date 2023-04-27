@@ -16,7 +16,7 @@ process PERL_CLEANUP {
     script:
 
     """
-    perl -pi -w -e "s/!/N/g;" ${fasta}
+    perl ${task.ext.args} ${fasta}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
