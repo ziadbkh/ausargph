@@ -32,7 +32,6 @@ for (param in checkPathParamList) { if (param) { file(param, checkIfExists: true
 
 include { BBMAP_DEDUPE } from '../modules/local/bbmap_dedupe'
 include { PREPARE_ADAPTOR } from '../modules/local/prepare_adaptor'
-include { TESTING } from '../modules/local/testing'
 include { INPUT_CHECK } from '../subworkflows/local/input_check'
 include { PREPARE_SAMPLESHEET } from '../modules/local/prepare_samplesheet'
 include { BBMAP_REFORMAT } from '../modules/local/bbmap_reformat'
