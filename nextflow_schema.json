@@ -5,7 +5,7 @@
     "description": "testing",
     "type": "object",
     "definitions": {
-        "input_output_options_options": {
+        "input_output_options": {
             "title": "Input/output options",
             "type": "object",
             "fa_icon": "fas fa-terminal",
@@ -1521,7 +1521,7 @@
                 }
             }
         },
-        "reference_genome_options_options": {
+        "reference_genome_options": {
             "title": "Reference genome and Blat Database options",
             "type": "object",
             "fa_icon": "fas fa-dna",
@@ -1547,7 +1547,7 @@
                 
             }
         },
-        "institutional_config_options_options": {
+        "institutional_config_options": {
             "title": "Institutional config options",
             "type": "object",
             "fa_icon": "fas fa-university",
@@ -1595,7 +1595,7 @@
                 }
             }
         },
-        "max_job_request_options_options": {
+        "max_job_request_options": {
             "title": "Max job request options",
             "type": "object",
             "fa_icon": "fab fa-acquisitions-incorporated",
@@ -1630,7 +1630,7 @@
                 }
             }
         },
-        "generic_options_options": {
+        "generic_options": {
             "title": "Generic options",
             "type": "object",
             "fa_icon": "fas fa-file-import",
