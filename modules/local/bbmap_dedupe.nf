@@ -7,7 +7,7 @@ process BBMAP_DEDUPE {
         'quay.io/biocontainers/python:3.8.3' }"
 
     input:
-    tuple val(sample_id), val(fastq) //, val(meta)
+    tuple val(sample_id), path (fastq) //, val(meta)
     
     output:
     tuple val(sample_id), path ("${sample_id}_deduped.${task.ext.fastq_suffix}.gz"), emit: deduplicates
