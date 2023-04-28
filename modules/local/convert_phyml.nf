@@ -26,7 +26,7 @@ process CONVERT_PHYML {
             id = ''
             for line in in_f:
                 if re.search('>', l):
-                    id = re.search('>(\S+)', l.rstrip()).group(1)
+                    id = re.search('>(\\S+)', l.rstrip()).group(1)
                     if re.search('^_R_', id):
                         id = re.sub('^_R_', '', id)
                     seq[id] = ''
@@ -36,12 +36,12 @@ process CONVERT_PHYML {
     with open(file_nm + '.aln.phy', 'w') as out_file:
         for sp, s in seq.items():
             # get rid of white spaces from gblocks
-            s = re.sub('\s+', '', s)
+            s = re.sub('\\s+', '', s)
             seq[sp] = s
 
-        out_file.write(' %s %s\n' % (len(seq), len(seq.values()[0])))
+        out_file.write(' %s %s\\n' % (len(seq), len(seq.values()[0])))
         for sp, s in seq.items():
-            out_file.write('%s   %s\n' % (sp, s))    
+            out_file.write('%s   %s\\n' % (sp, s))    
     
     
     with open ("versions.yml", "w") as version_file:

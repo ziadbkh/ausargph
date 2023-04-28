@@ -32,6 +32,7 @@ for (param in checkPathParamList) { if (param) { file(param, checkIfExists: true
 
 include { BBMAP_DEDUPE } from '../modules/local/bbmap_dedupe'
 include { PREPARE_ADAPTOR } from '../modules/local/prepare_adaptor'
+
 include { INPUT_CHECK } from '../subworkflows/local/input_check'
 include { PREPARE_SAMPLESHEET } from '../modules/local/prepare_samplesheet'
 include { BBMAP_REFORMAT } from '../modules/local/bbmap_reformat'
@@ -42,6 +43,7 @@ include { CONCATENATE as CONCATENATE2 } from '../modules/local/concatenate'
 include { CONCATENATE as CONCATENATE3 } from '../modules/local/concatenate'
 include {TRIMMOMATIC_CLEAN_PE} from '../modules/local/trimmomatic_clean_pe'
 include {TRIMMOMATIC_CLEAN_SE} from '../modules/local/trimmomatic_clean_se'
+
 include {BBMAP_FILTER} from '../modules/local/bbmap_filter'
 include {TRINITY} from '../modules/local/trinity'
 include {TRINITY_POSTPROCESSING} from '../modules/local/trinity_postprocessing'
@@ -51,10 +53,12 @@ include {PARSE_BLAT_RESULTS} from '../modules/local/parse_blat_results'
 include {MAFFT} from '../modules/local/mafft'
 include { MACSE } from '../modules/local/macse'
 include {PERL_CLEANUP} from '../modules/local/perl_cleanup'
+
 include {MAKE_PRG} from '../modules/local/make_prg'
 include {QUALITY_2_ASSEMBLY} from '../modules/local/quality_2_assembly'
 include {PHYLOGENY_MAKE_ALIGNMENTS} from '../modules/local/phylogeny_make_alignments'
 include { GBLOCKS } from '../modules/local/gblocks'
+
 include { CONVERT_PHYML } from '../modules/local/convert_phyml'
 include { RAXML } from '../modules/local/raxml'
 include { SED } from '../modules/local/check_me_sed'

@@ -20,7 +20,6 @@ process MAKE_PRG {
         --lineage ${lineage} \
         --match-file ${sample_matches} \
         --sample-fasta ${sample_fasta} \
-        --kept-tags ${params.make_rgb_kept_tags} \
         --output-dir ./ \
         --sample ${sample_id} ${task.ext.args}
     

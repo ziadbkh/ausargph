@@ -74,7 +74,7 @@ class WorkflowMain {
 
         // Check input has been provided
         if (!params.input) {
-            log.error "Please provide an input samplesheet to the pipeline e.g. '--input samplesheet.csv'"
+            log.error "Please provide an input directory with fastq files to the pipeline e.g. '--input ./samples/'"
             System.exit(1)
         }
     }

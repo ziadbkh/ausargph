@@ -469,7 +469,7 @@
                 },
                 "bbmap_reformat_dotdashxton": {
                     "type": "boolean",
-                    "default": "true",
+                    "default": true,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -916,6 +916,14 @@
             "description": "The configurations of the process make_prg.",
             "help_text": "",
             "properties": {
+                "make_rgb_kept_tags": {
+                    "type": "string",
+                    "default": "easy_recip_match,complicated_recip_match",
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
                 "make_prg_args": {
                     "type": "string",
                     "default": null,
@@ -957,6 +965,38 @@
             "description": "The configurations of the process gblocks.",
             "help_text": "",
             "properties": {
+                 "gblocks_b1": {
+                    "type": "number",
+                    "default": 0.5,
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
+                "gblocks_b2": {
+                    "type": "number",
+                    "default": 0.85,
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
+                "gblocks_b3": {
+                    "type": "number",
+                    "default": 8,
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
+                "gblocks_b4": {
+                    "type": "number",
+                    "default": 10,
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
                 "gblocks_args": {
                     "type": "string",
                     "default": null,
@@ -1039,25 +1079,9 @@
             "description": "The configurations of the process trinity.",
             "help_text": "",
             "properties": {
-                "trinity_mem": {
-                    "type": "number",
-                    "default": 2.0,
-                    "description": "",
-                    "help_text": "",
-                    "fa_icon": "fa fa-cog",
-                    "hidden": true
-                },
-                "trinity_threads": {
-                    "type": "number",
-                    "default": 1.0,
-                    "description": "",
-                    "help_text": "",
-                    "fa_icon": "fa fa-cog",
-                    "hidden": true
-                },
                 "trinity_normalize_reads": {
                     "type": "boolean",
-                    "default": "false",
+                    "default": false,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1065,7 +1089,7 @@
                 },
                 "trinity_processed_header": {
                     "type": "string",
-                    "default": "\"contig\"",
+                    "default": "contig",
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1308,8 +1332,8 @@
             "help_text": "",
             "properties": {
                 "mafft_maxiterate": {
-                    "type": "number",
-                    "default": 1000.0,
+                    "type": "integer",
+                    "default": 1000,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1357,8 +1381,8 @@
             "help_text": "",
             "properties": {
                 "raxml_runs": {
-                    "type": "number",
-                    "default": 100.0,
+                    "type": "integer",
+                    "default": 100,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1654,6 +1678,51 @@
                 }
             }
         },
+        "Customisation_options": {
+            "title": "Customisation options",
+            "type": "object",
+            "fa_icon": "fas fa-file-import",
+            "description": "",
+            "help_text": "",
+            "properties": {
+                "fastq_suffix": {
+                    "type": "string",
+                    "description": ".",
+                    "default": "fastq",
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": true
+                },
+                "batching_size": {
+                    "type": "integer",
+                    "description": ".",
+                    "default": 1000,
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": false
+                },
+                "tree_method": {
+                    "type": "string",
+                    "description": "'raxml', 'phyml', 'iqtree'.",
+                    "default": "raxml",
+                    "fa_icon": "fas fa-question-circle",
+                    "enum": ["raxml", "phyml", "iqtree"],
+                    "hidden": false
+                },
+                "trim_alignment": {
+                    "type": "boolean",
+                    "description": ".",
+                    "default": true,
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": false
+                },
+                "trimmed": {
+                    "type": "boolean",
+                    "description": ".",
+                    "default": true,
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": false
+                }
+            }
+        },
         "generic_options": {
             "title": "Generic options",
             "type": "object",
@@ -1715,6 +1784,12 @@
                     "type": "boolean",
                     "description": "Run this workflow with Conda. You can also use '-profile conda' instead of providing this parameter.",
                     "hidden": true,
+                    "fa_icon": "fas fa-bacon"
+                },
+                "monochrome_logs": {
+                    "type": "boolean",
+                    "description": "",
+                    "hidden": false,
                     "fa_icon": "fas fa-bacon"
                 }
             }
