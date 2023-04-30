@@ -52,6 +52,14 @@
             "description": "The configurations of the process phylogeny_make_alignments.",
             "help_text": "",
             "properties": {
+                "phylogeny_make_alignments_minsamp": {
+                    "type": "integer",
+                    "default": 4,
+                    "description": "",
+                    "help_text": "",
+                    "fa_icon": "fa fa-cog",
+                    "hidden": true
+                },
                 "phylogeny_make_alignments_args": {
                     "type": "string",
                     "default": null,
