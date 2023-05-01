@@ -30,7 +30,7 @@ process GBLOCKS {
             b2=\$b1
         fi
 
-        Gblocks \${file_base_name}  -b1=\$b1  -b2=\$b2  ${task.ext.args}
+        Gblocks \${file_base_name}  -b1=\$b1  -b2=\$b2  ${task.ext.args} || true
     done
 
     cat <<-END_VERSIONS > versions.yml
