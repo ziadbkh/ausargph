@@ -70,7 +70,7 @@
                 },
                 "phylogeny_make_alignments_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -78,7 +78,7 @@
                 },
                 "phylogeny_make_alignments_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -86,7 +86,7 @@
                 },
                 "phylogeny_make_alignments_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -119,7 +119,7 @@
                 },
                 "trinity_postprocessing_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -127,7 +127,7 @@
                 },
                 "trinity_postprocessing_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -160,7 +160,7 @@
                 },
                 "trimmomatic_clean_pe_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -168,7 +168,7 @@
                 },
                 "trimmomatic_clean_pe_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -201,7 +201,7 @@
                 },
                 "trimmomatic_clean_se_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -209,7 +209,7 @@
                 },
                 "trimmomatic_clean_se_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -242,7 +242,7 @@
                 },
                 "prepare_samplesheet_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -250,7 +250,7 @@
                 },
                 "prepare_samplesheet_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -283,7 +283,7 @@
                 },
                 "parse_blat_results_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -291,7 +291,7 @@
                 },
                 "parse_blat_results_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -324,7 +324,7 @@
                 },
                 "quality_2_assembly_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -332,7 +332,7 @@
                 },
                 "quality_2_assembly_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -365,7 +365,7 @@
                 },
                 "samplesheet_check_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -373,7 +373,7 @@
                 },
                 "samplesheet_check_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -406,7 +406,7 @@
                 },
                 "bbmap_reformat_z_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -414,7 +414,7 @@
                 },
                 "bbmap_reformat_z_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -447,7 +447,7 @@
                 },
                 "prepare_adaptor_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -455,7 +455,7 @@
                 },
                 "prepare_adaptor_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -512,7 +512,7 @@
                 },
                 "bbmap_reformat_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -520,7 +520,7 @@
                 },
                 "bbmap_reformat_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -553,7 +553,7 @@
                 },
                 "convert_phyml_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -561,7 +561,7 @@
                 },
                 "convert_phyml_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -594,7 +594,7 @@
                 },
                 "preprocessing_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -602,7 +602,7 @@
                 },
                 "preprocessing_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -627,7 +627,7 @@
                 },
                 "bbmap_dedupe_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -635,7 +635,7 @@
                 },
                 "bbmap_dedupe_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -643,7 +643,7 @@
                 },
                 "bbmap_dedupe_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -684,7 +684,7 @@
                 },
                 "bbmap_filter_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -692,7 +692,7 @@
                 },
                 "bbmap_filter_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -700,7 +700,7 @@
                 },
                 "bbmap_filter_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -725,7 +725,7 @@
                 },
                 "perl_cleanup_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -733,7 +733,7 @@
                 },
                 "perl_cleanup_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -741,7 +741,7 @@
                 },
                 "perl_cleanup_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -766,7 +766,7 @@
                 },
                 "concatenate_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -774,7 +774,7 @@
                 },
                 "concatenate_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -782,7 +782,7 @@
                 },
                 "concatenate_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -807,7 +807,7 @@
                 },
                 "merge_trees_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -815,7 +815,7 @@
                 },
                 "merge_trees_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -823,7 +823,7 @@
                 },
                 "merge_trees_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -896,7 +896,7 @@
                 },
                 "trimmomatic_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -904,7 +904,7 @@
                 },
                 "trimmomatic_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -912,7 +912,7 @@
                 },
                 "trimmomatic_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -945,7 +945,7 @@
                 },
                 "make_prg_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -953,7 +953,7 @@
                 },
                 "make_prg_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -961,7 +961,7 @@
                 },
                 "make_prg_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1018,7 +1018,7 @@
                 },
                 "gblocks_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1026,7 +1026,7 @@
                 },
                 "gblocks_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1034,7 +1034,7 @@
                 },
                 "gblocks_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1059,7 +1059,7 @@
                 },
                 "testing_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1067,7 +1067,7 @@
                 },
                 "testing_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1075,7 +1075,7 @@
                 },
                 "testing_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1116,7 +1116,7 @@
                 },
                 "trinity_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1124,7 +1124,7 @@
                 },
                 "trinity_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1132,7 +1132,7 @@
                 },
                 "trinity_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1157,7 +1157,7 @@
                 },
                 "iqtree_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1165,7 +1165,7 @@
                 },
                 "iqtree_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1173,7 +1173,7 @@
                 },
                 "iqtree_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1198,7 +1198,7 @@
                 },
                 "aster_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1206,7 +1206,7 @@
                 },
                 "aster_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1214,7 +1214,7 @@
                 },
                 "aster_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1311,7 +1311,7 @@
                 },
                 "macse_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1319,7 +1319,7 @@
                 },
                 "macse_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1327,7 +1327,7 @@
                 },
                 "macse_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1360,7 +1360,7 @@
                 },
                 "mafft_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1368,7 +1368,7 @@
                 },
                 "mafft_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1376,7 +1376,7 @@
                 },
                 "mafft_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1409,7 +1409,7 @@
                 },
                 "raxml_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1417,7 +1417,7 @@
                 },
                 "raxml_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1425,7 +1425,7 @@
                 },
                 "raxml_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1466,7 +1466,7 @@
                 },
                 "blat_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1474,7 +1474,7 @@
                 },
                 "blat_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1482,7 +1482,7 @@
                 },
                 "blat_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1515,7 +1515,7 @@
                 },
                 "pear_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1523,7 +1523,7 @@
                 },
                 "pear_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1531,7 +1531,7 @@
                 },
                 "pear_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1556,7 +1556,7 @@
                 },
                 "sed_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -1564,7 +1564,7 @@
                 },
                 "sed_memory": {
                     "type": "string",
-                    "default": "8.GB",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-memory",
@@ -1572,7 +1572,7 @@
                 },
                 "sed_walltime": {
                     "type": "string",
-                    "default": "12.h",
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "far fa-clock",
@@ -1688,7 +1688,6 @@
                 "max_cpus": {
                     "type": "integer",
                     "description": "Maximum number of CPUs that can be requested for any single job.",
-                    "default": 16,
                     "fa_icon": "fas fa-microchip",
                     "hidden": true,
                     "help_text": "Use to set an upper-limit for the CPU requirement for each process. Should be an integer e.g. `--max_cpus 1`"
@@ -1696,7 +1695,6 @@
                 "max_memory": {
                     "type": "string",
                     "description": "Maximum amount of memory that can be requested for any single job.",
-                    "default": "128.GB",
                     "fa_icon": "fas fa-memory",
                     "pattern": "^\\d+(\\.\\d+)?\\.?\\s*(K|M|G|T)?B$",
                     "hidden": true,
@@ -1705,7 +1703,6 @@
                 "max_time": {
                     "type": "string",
                     "description": "Maximum amount of time that can be requested for any single job.",
-                    "default": "240.h",
                     "fa_icon": "far fa-clock",
                     "pattern": "^(\\d+\\.?\\s*(s|m|h|day)\\s*)+$",
                     "hidden": true,
