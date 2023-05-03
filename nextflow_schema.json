@@ -1703,7 +1703,7 @@
                 "batching_size": {
                     "type": "integer",
                     "description": ".",
-                    "default": 1000,
+                    "default": 250,
                     "fa_icon": "fas fa-question-circle",
                     "hidden": false
                 }
