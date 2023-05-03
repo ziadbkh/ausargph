@@ -45,6 +45,486 @@
                 }
             }
         },
+        ,
+        "reference_genome_options": {
+            "title": "Reference genome and Blat Database options",
+            "type": "object",
+            "fa_icon": "fas fa-dna",
+            "description": "Reference genome and and Blat Database related files and options required for the workflow.",
+            "required": ["reference_genome", "blat_db"],
+            "properties": {
+                "reference_genome": {
+                    "type": "string",
+                    "format": "file-path",
+                    "mimetype": "text/plain",
+                    "default":"/scratch/director2172/ziadbkh/my_data/ausarg/Squamate_AHE_UCE_genes_Pygopodidae.fasta",
+                    "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$",
+                    "description": "Path to FASTA genome file.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-dna"
+                },
+                "blat_db": {
+                    "type": "string",
+                    "default": "/scratch/director2172/ziadbkh/my_data/ausarg/squamate_AHE_UCE_genes_unique.flipped.fasta",
+                    "format": "file-path",
+                    "description": "Path to the directory containing blat database",
+                    "help_text": "",
+                    "fa_icon": "fa fa-database"
+                },
+                "tree_method": {
+                    "type": "string",
+                    "description": "'raxml', 'phyml', 'iqtree'.",
+                    "default": "raxml",
+                    "fa_icon": "fas fa-question-circle",
+                    "enum": ["raxml", "phyml", "iqtree"],
+                    "hidden": false
+                },
+                "trim_alignment": {
+                    "type": "boolean",
+                    "description": ".",
+                    "default": true,
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": false
+                },
+                "trimmed": {
+                    "type": "boolean",
+                    "description": ".",
+                    "default": true,
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": false
+                },
+                "batching_size": {
+                    "type": "integer",
+                    "description": ".",
+                    "default": 250,
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": false
+                }
+                
+            }
+        },
+        "institutional_config_options": {
+            "title": "Institutional config options",
+            "type": "object",
+            "fa_icon": "fas fa-university",
+            "description": "Parameters used to describe centralised config profiles. These should not be edited.",
+            "help_text": "The centralised nf-core configuration profiles use a handful of pipeline parameters to describe themselves. This information is then printed to the Nextflow log when you run a pipeline. You should not need to change these values when you run a pipeline.",
+            "properties": {
+                "custom_config_version": {
+                    "type": "string",
+                    "description": "Git commit id for Institutional configs.",
+                    "default": "master",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "custom_config_base": {
+                    "type": "string",
+                    "description": "Base directory for Institutional configs.",
+                    "default": "https://raw.githubusercontent.com/nf-core/configs/master",
+                    "hidden": true,
+                    "help_text": "If you're running offline, Nextflow will not be able to fetch the institutional config files from the internet. If you don't need them, then this is not a problem. If you do need them, you should download the files from the repo and tell Nextflow where to find them with this parameter.",
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "config_profile_name": {
+                    "type": "string",
+                    "description": "Institutional config name.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "config_profile_description": {
+                    "type": "string",
+                    "description": "Institutional config description.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "config_profile_contact": {
+                    "type": "string",
+                    "description": "Institutional config contact information.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                },
+                "config_profile_url": {
+                    "type": "string",
+                    "description": "Institutional config URL link.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-users-cog"
+                }
+            }
+        },
+        "max_job_request_options": {
+            "title": "Max job request options",
+            "type": "object",
+            "fa_icon": "fab fa-acquisitions-incorporated",
+            "description": "Set the top limit for requested resources for any single job.",
+            "help_text": "If you are running on a smaller system, a pipeline step requesting more resources than are available may cause the Nextflow to stop the run with an error. These options allow you to cap the maximum resources requested by any single job so that the pipeline will run on your system.\n\nNote that you can not _increase_ the resources requested by any job using these options. For that you will need your own configuration file. See [the nf-core website](https://nf-co.re/usage/configuration) for details.",
+            "properties": {
+                "max_cpus": {
+                    "type": "integer",
+                    "description": "Maximum number of CPUs that can be requested for any single job.",
+                    "fa_icon": "fas fa-microchip",
+                    "hidden": true,
+                    "help_text": "Use to set an upper-limit for the CPU requirement for each process. Should be an integer e.g. `--max_cpus 1`"
+                },
+                "max_memory": {
+                    "type": "string",
+                    "description": "Maximum amount of memory that can be requested for any single job.",
+                    "fa_icon": "fas fa-memory",
+                    "pattern": "^\\d+(\\.\\d+)?\\.?\\s*(K|M|G|T)?B$",
+                    "hidden": true,
+                    "help_text": "Use to set an upper-limit for the memory requirement for each process. Should be a string in the format integer-unit e.g. `--max_memory '8.GB'`"
+                },
+                "max_time": {
+                    "type": "string",
+                    "description": "Maximum amount of time that can be requested for any single job.",
+                    "fa_icon": "far fa-clock",
+                    "pattern": "^(\\d+\\.?\\s*(s|m|h|day)\\s*)+$",
+                    "hidden": true,
+                    "help_text": "Use to set an upper-limit for the time requirement for each process. Should be a string in the format integer-unit e.g. `--max_time '2.h'`"
+                }
+            }
+        },
+        "generic_options": {
+            "title": "Generic options",
+            "type": "object",
+            "fa_icon": "fas fa-file-import",
+            "description": "Less common options for the pipeline, typically set in a config file.",
+            "help_text": "These options are common to all nf-core pipelines and allow you to customise some of the core preferences for how the pipeline runs.\n\nTypically these options would be set in a Nextflow config file loaded for all pipeline runs, such as `~/.nextflow/config`.",
+            "properties": {
+                "help": {
+                    "type": "boolean",
+                    "description": "Display help text.",
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": true
+                },
+                "email_on_fail": {
+                    "type": "string",
+                    "description": "Email address for completion summary, only when pipeline fails.",
+                    "fa_icon": "fas fa-exclamation-triangle",
+                    "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$",
+                    "help_text": "An email address to send a summary email to when the pipeline is completed - ONLY sent if the pipeline does not exit successfully.",
+                    "hidden": true
+                },
+                "plaintext_email": {
+                    "type": "boolean",
+                    "description": "Send plain-text email instead of HTML.",
+                    "fa_icon": "fas fa-remove-format",
+                    "hidden": true
+                },
+                "tracedir": {
+                    "type": "string",
+                    "description": "Directory to keep pipeline Nextflow logs and reports.",
+                    "default": "${params.outdir}/pipeline_info",
+                    "fa_icon": "fas fa-cogs",
+                    "hidden": true
+                },
+                "validate_params": {
+                    "type": "boolean",
+                    "description": "Boolean whether to validate parameters against the schema at runtime",
+                    "default": true,
+                    "fa_icon": "fas fa-check-square",
+                    "hidden": true
+                },
+                "show_hidden_params": {
+                    "type": "boolean",
+                    "fa_icon": "far fa-eye-slash",
+                    "description": "Show all params when using `--help`",
+                    "hidden": true,
+                    "help_text": "By default, parameters set as _hidden_ in the schema are not shown on the command line when a user runs with `--help`. Specifying this option will tell the pipeline to show all parameters."
+                },
+                "enable_conda": {
+                    "type": "boolean",
+                    "description": "Run this workflow with Conda. You can also use '-profile conda' instead of providing this parameter.",
+                    "hidden": true,
+                    "fa_icon": "fas fa-bacon"
+                },
+                "monochrome_logs": {
+                    "type": "boolean",
+                    "description": "",
+                    "hidden": false,
+                    "fa_icon": "fas fa-bacon"
+                }
+            }
+        },
+        "saved_output_options": {
+            "title": "Pipeline output options",
+            "type": "object",
+            "fa_icon": "fas fa-file-import",
+            "description": "Decide on what processes output to keep.",
+            "help_text": "",
+            "properties": {
+                "fastq_suffix": {
+                    "type": "string",
+                    "description": ".",
+                    "default": "fastq",
+                    "fa_icon": "fas fa-question-circle",
+                    "hidden": true
+                },
+                "publish_dir_mode": {
+                    "type": "string",
+                    "default": "copy",
+                    "description": "Method used to save pipeline results to output directory.",
+                    "help_text": "The Nextflow `publishDir` option specifies which intermediate files should be saved to the output directory. This option tells the pipeline what method should be used to move these files. See [Nextflow docs](https://www.nextflow.io/docs/latest/process.html#publishdir) for details.",
+                    "fa_icon": "fas fa-copy",
+                    "enum": [
+                        "symlink",
+                        "rellink",
+                        "link",
+                        "copy",
+                        "copyNoFollow",
+                        "move"
+                    ],
+                    "hidden": true
+                },
+                "phylogeny_make_alignments_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'phylogeny_make_alignments' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "trinity_postprocessing_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'trinity_postprocessing' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "trimmomatic_clean_pe_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'trimmomatic_clean_pe' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "trimmomatic_clean_se_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'trimmomatic_clean_se' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "prepare_samplesheet_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'prepare_samplesheet' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "parse_blat_results_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'parse_blat_results' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "quality_2_assembly_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'quality_2_assembly' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "samplesheet_check_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'samplesheet_check' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "bbmap_reformat_z_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'bbmap_reformat_z' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "prepare_adaptor_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'prepare_adaptor' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "bbmap_reformat_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'bbmap_reformat' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "convert_phyml_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'convert_phyml' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "preprocessing_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'preprocessing' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "bbmap_dedupe_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'bbmap_dedupe' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "bbmap_filter_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'bbmap_filter' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "perl_cleanup_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'perl_cleanup' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "concatenate_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'concatenate' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "merge_trees_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'merge_trees' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "trimmomatic_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'trimmomatic' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "make_prg_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'make_prg' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "gblocks_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'gblocks' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "testing_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'testing' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "trinity_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'trinity' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "iqtree_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'iqtree' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "aster_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'aster' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "macse_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'macse' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "mafft_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'mafft' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "raxml_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'raxml' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "blat_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'blat' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "pear_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'pear' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                },
+                "sed_keep_output": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "If enabled, the output of process 'sed' will be saved in the output directory.",
+                    "help_text": "",
+                    "fa_icon": "fas fa-copy",
+                    "hidden": true
+                }
+            }
+        },
         "phylogeny_make_alignments_options": {
             "title": "phylogeny_make_alignments options",
             "type": "object",
@@ -1555,495 +2035,6 @@
                     "hidden": true
                 }
             }
-        },
-        "reference_genome_options": {
-            "title": "Reference genome and Blat Database options",
-            "type": "object",
-            "fa_icon": "fas fa-dna",
-            "description": "Reference genome and and Blat Database related files and options required for the workflow.",
-            "required": ["reference_genome", "blat_db"],
-            "properties": {
-                "reference_genome": {
-                    "type": "string",
-                    "format": "file-path",
-                    "mimetype": "text/plain",
-                    "default":"/scratch/director2172/ziadbkh/my_data/ausarg/Squamate_AHE_UCE_genes_Pygopodidae.fasta",
-                    "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$",
-                    "description": "Path to FASTA genome file.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-dna"
-                },
-                "blat_db": {
-                    "type": "string",
-                    "default": "/scratch/director2172/ziadbkh/my_data/ausarg/squamate_AHE_UCE_genes_unique.flipped.fasta",
-                    "format": "file-path",
-                    "description": "Path to the directory containing blat database",
-                    "help_text": "",
-                    "fa_icon": "fa fa-database"
-                },
-                "tree_method": {
-                    "type": "string",
-                    "description": "'raxml', 'phyml', 'iqtree'.",
-                    "default": "raxml",
-                    "fa_icon": "fas fa-question-circle",
-                    "enum": ["raxml", "phyml", "iqtree"],
-                    "hidden": false
-                },
-                "trim_alignment": {
-                    "type": "boolean",
-                    "description": ".",
-                    "default": true,
-                    "fa_icon": "fas fa-question-circle",
-                    "hidden": false
-                },
-                "trimmed": {
-                    "type": "boolean",
-                    "description": ".",
-                    "default": true,
-                    "fa_icon": "fas fa-question-circle",
-                    "hidden": false
-                }
-                
-            }
-        },
-        "institutional_config_options": {
-            "title": "Institutional config options",
-            "type": "object",
-            "fa_icon": "fas fa-university",
-            "description": "Parameters used to describe centralised config profiles. These should not be edited.",
-            "help_text": "The centralised nf-core configuration profiles use a handful of pipeline parameters to describe themselves. This information is then printed to the Nextflow log when you run a pipeline. You should not need to change these values when you run a pipeline.",
-            "properties": {
-                "custom_config_version": {
-                    "type": "string",
-                    "description": "Git commit id for Institutional configs.",
-                    "default": "master",
-                    "hidden": true,
-                    "fa_icon": "fas fa-users-cog"
-                },
-                "custom_config_base": {
-                    "type": "string",
-                    "description": "Base directory for Institutional configs.",
-                    "default": "https://raw.githubusercontent.com/nf-core/configs/master",
-                    "hidden": true,
-                    "help_text": "If you're running offline, Nextflow will not be able to fetch the institutional config files from the internet. If you don't need them, then this is not a problem. If you do need them, you should download the files from the repo and tell Nextflow where to find them with this parameter.",
-                    "fa_icon": "fas fa-users-cog"
-                },
-                "config_profile_name": {
-                    "type": "string",
-                    "description": "Institutional config name.",
-                    "hidden": true,
-                    "fa_icon": "fas fa-users-cog"
-                },
-                "config_profile_description": {
-                    "type": "string",
-                    "description": "Institutional config description.",
-                    "hidden": true,
-                    "fa_icon": "fas fa-users-cog"
-                },
-                "config_profile_contact": {
-                    "type": "string",
-                    "description": "Institutional config contact information.",
-                    "hidden": true,
-                    "fa_icon": "fas fa-users-cog"
-                },
-                "config_profile_url": {
-                    "type": "string",
-                    "description": "Institutional config URL link.",
-                    "hidden": true,
-                    "fa_icon": "fas fa-users-cog"
-                }
-            }
-        },
-        "max_job_request_options": {
-            "title": "Max job request options",
-            "type": "object",
-            "fa_icon": "fab fa-acquisitions-incorporated",
-            "description": "Set the top limit for requested resources for any single job.",
-            "help_text": "If you are running on a smaller system, a pipeline step requesting more resources than are available may cause the Nextflow to stop the run with an error. These options allow you to cap the maximum resources requested by any single job so that the pipeline will run on your system.\n\nNote that you can not _increase_ the resources requested by any job using these options. For that you will need your own configuration file. See [the nf-core website](https://nf-co.re/usage/configuration) for details.",
-            "properties": {
-                "max_cpus": {
-                    "type": "integer",
-                    "description": "Maximum number of CPUs that can be requested for any single job.",
-                    "fa_icon": "fas fa-microchip",
-                    "hidden": true,
-                    "help_text": "Use to set an upper-limit for the CPU requirement for each process. Should be an integer e.g. `--max_cpus 1`"
-                },
-                "max_memory": {
-                    "type": "string",
-                    "description": "Maximum amount of memory that can be requested for any single job.",
-                    "fa_icon": "fas fa-memory",
-                    "pattern": "^\\d+(\\.\\d+)?\\.?\\s*(K|M|G|T)?B$",
-                    "hidden": true,
-                    "help_text": "Use to set an upper-limit for the memory requirement for each process. Should be a string in the format integer-unit e.g. `--max_memory '8.GB'`"
-                },
-                "max_time": {
-                    "type": "string",
-                    "description": "Maximum amount of time that can be requested for any single job.",
-                    "fa_icon": "far fa-clock",
-                    "pattern": "^(\\d+\\.?\\s*(s|m|h|day)\\s*)+$",
-                    "hidden": true,
-                    "help_text": "Use to set an upper-limit for the time requirement for each process. Should be a string in the format integer-unit e.g. `--max_time '2.h'`"
-                }
-            }
-        },
-        "Customisation_options": {
-            "title": "Customisation options",
-            "type": "object",
-            "fa_icon": "fas fa-file-import",
-            "description": "",
-            "help_text": "",
-            "properties": {
-                "fastq_suffix": {
-                    "type": "string",
-                    "description": ".",
-                    "default": "fastq",
-                    "fa_icon": "fas fa-question-circle",
-                    "hidden": true
-                },
-                "batching_size": {
-                    "type": "integer",
-                    "description": ".",
-                    "default": 250,
-                    "fa_icon": "fas fa-question-circle",
-                    "hidden": false
-                }
-                
-            }
-        },
-        "generic_options": {
-            "title": "Generic options",
-            "type": "object",
-            "fa_icon": "fas fa-file-import",
-            "description": "Less common options for the pipeline, typically set in a config file.",
-            "help_text": "These options are common to all nf-core pipelines and allow you to customise some of the core preferences for how the pipeline runs.\n\nTypically these options would be set in a Nextflow config file loaded for all pipeline runs, such as `~/.nextflow/config`.",
-            "properties": {
-                "help": {
-                    "type": "boolean",
-                    "description": "Display help text.",
-                    "fa_icon": "fas fa-question-circle",
-                    "hidden": true
-                },
-                "email_on_fail": {
-                    "type": "string",
-                    "description": "Email address for completion summary, only when pipeline fails.",
-                    "fa_icon": "fas fa-exclamation-triangle",
-                    "pattern": "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$",
-                    "help_text": "An email address to send a summary email to when the pipeline is completed - ONLY sent if the pipeline does not exit successfully.",
-                    "hidden": true
-                },
-                "plaintext_email": {
-                    "type": "boolean",
-                    "description": "Send plain-text email instead of HTML.",
-                    "fa_icon": "fas fa-remove-format",
-                    "hidden": true
-                },
-                "tracedir": {
-                    "type": "string",
-                    "description": "Directory to keep pipeline Nextflow logs and reports.",
-                    "default": "${params.outdir}/pipeline_info",
-                    "fa_icon": "fas fa-cogs",
-                    "hidden": true
-                },
-                "validate_params": {
-                    "type": "boolean",
-                    "description": "Boolean whether to validate parameters against the schema at runtime",
-                    "default": true,
-                    "fa_icon": "fas fa-check-square",
-                    "hidden": true
-                },
-                "show_hidden_params": {
-                    "type": "boolean",
-                    "fa_icon": "far fa-eye-slash",
-                    "description": "Show all params when using `--help`",
-                    "hidden": true,
-                    "help_text": "By default, parameters set as _hidden_ in the schema are not shown on the command line when a user runs with `--help`. Specifying this option will tell the pipeline to show all parameters."
-                },
-                "enable_conda": {
-                    "type": "boolean",
-                    "description": "Run this workflow with Conda. You can also use '-profile conda' instead of providing this parameter.",
-                    "hidden": true,
-                    "fa_icon": "fas fa-bacon"
-                },
-                "monochrome_logs": {
-                    "type": "boolean",
-                    "description": "",
-                    "hidden": false,
-                    "fa_icon": "fas fa-bacon"
-                }
-            }
-        },
-        "saved_output_options": {
-            "title": "Pipeline output options",
-            "type": "object",
-            "fa_icon": "fas fa-file-import",
-            "description": "Decide on what processes output to keep.",
-            "help_text": "",
-            "properties": {
-                "publish_dir_mode": {
-                    "type": "string",
-                    "default": "copy",
-                    "description": "Method used to save pipeline results to output directory.",
-                    "help_text": "The Nextflow `publishDir` option specifies which intermediate files should be saved to the output directory. This option tells the pipeline what method should be used to move these files. See [Nextflow docs](https://www.nextflow.io/docs/latest/process.html#publishdir) for details.",
-                    "fa_icon": "fas fa-copy",
-                    "enum": [
-                        "symlink",
-                        "rellink",
-                        "link",
-                        "copy",
-                        "copyNoFollow",
-                        "move"
-                    ],
-                    "hidden": true
-                },
-                "phylogeny_make_alignments_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'phylogeny_make_alignments' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "trinity_postprocessing_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'trinity_postprocessing' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "trimmomatic_clean_pe_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'trimmomatic_clean_pe' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "trimmomatic_clean_se_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'trimmomatic_clean_se' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "prepare_samplesheet_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'prepare_samplesheet' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "parse_blat_results_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'parse_blat_results' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "quality_2_assembly_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'quality_2_assembly' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "samplesheet_check_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'samplesheet_check' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "bbmap_reformat_z_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'bbmap_reformat_z' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "prepare_adaptor_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'prepare_adaptor' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "bbmap_reformat_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'bbmap_reformat' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "convert_phyml_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'convert_phyml' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "preprocessing_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'preprocessing' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "bbmap_dedupe_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'bbmap_dedupe' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "bbmap_filter_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'bbmap_filter' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "perl_cleanup_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'perl_cleanup' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "concatenate_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'concatenate' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "merge_trees_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'merge_trees' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "trimmomatic_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'trimmomatic' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "make_prg_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'make_prg' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "gblocks_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'gblocks' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "testing_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'testing' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "trinity_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'trinity' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "iqtree_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'iqtree' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "aster_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'aster' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "macse_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'macse' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "mafft_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'mafft' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "raxml_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'raxml' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "blat_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'blat' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "pear_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'pear' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                },
-                "sed_keep_output": {
-                    "type": "boolean",
-                    "default": false,
-                    "description": "If enabled, the output of process 'sed' will be saved in the output directory.",
-                    "help_text": "",
-                    "fa_icon": "fas fa-copy",
-                    "hidden": true
-                }
-            }
         }
         
     },
@@ -2064,7 +2055,9 @@
             "$ref": "#/definitions/generic_options"
         },
         {
-        
+            "$ref": "#/definitions/saved_output_options"
+        },
+        {
         "$ref": "#/definitions/phylogeny_make_alignments_options"
         },
         {
