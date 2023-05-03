@@ -111,7 +111,7 @@
                 },
                 "trinity_postprocessing_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -152,7 +152,7 @@
                 },
                 "trimmomatic_clean_pe_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -193,7 +193,7 @@
                 },
                 "trimmomatic_clean_se_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -234,7 +234,7 @@
                 },
                 "prepare_samplesheet_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -275,7 +275,7 @@
                 },
                 "parse_blat_results_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -316,7 +316,7 @@
                 },
                 "quality_2_assembly_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -357,7 +357,7 @@
                 },
                 "samplesheet_check_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -398,7 +398,7 @@
                 },
                 "bbmap_reformat_z_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -439,7 +439,7 @@
                 },
                 "prepare_adaptor_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -504,7 +504,7 @@
                 },
                 "bbmap_reformat_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -545,7 +545,7 @@
                 },
                 "convert_phyml_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -586,7 +586,7 @@
                 },
                 "preprocessing_cpus": {
                     "type": "integer",
-                    "default": 1,
+                    
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fas fa-microchip",
@@ -838,14 +838,6 @@
             "description": "The configurations of the process trimmomatic.",
             "help_text": "",
             "properties": {
-                "trimmomatic_threads": {
-                    "type": "number",
-                    "default": 1.0,
-                    "description": "",
-                    "help_text": "",
-                    "fa_icon": "fa fa-cog",
-                    "hidden": true
-                },
                 "trimmomatic_clean_minlength": {
                     "type": "number",
                     "default": 36.0,
@@ -873,14 +865,6 @@
                 "trimmomatic_clean_qual": {
                     "type": "number",
                     "default": 15.0,
-                    "description": "",
-                    "help_text": "",
-                    "fa_icon": "fa fa-cog",
-                    "hidden": true
-                },
-                "trimmomatic_clean_threads": {
-                    "type": "number",
-                    "default": 1.0,
                     "description": "",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
@@ -1497,14 +1481,6 @@
             "description": "The configurations of the process pear.",
             "help_text": "",
             "properties": {
-                "pear_threads": {
-                    "type": "number",
-                    "default": 1.0,
-                    "description": "",
-                    "help_text": "",
-                    "fa_icon": "fa fa-cog",
-                    "hidden": true
-                },
                 "pear_args": {
                     "type": "string",
                     "default": null,
