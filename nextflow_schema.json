@@ -45,7 +45,6 @@
                 }
             }
         },
-        ,
         "reference_genome_options": {
             "title": "Reference genome and Blat Database options",
             "type": "object",
