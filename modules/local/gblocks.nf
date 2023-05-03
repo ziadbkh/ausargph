@@ -21,9 +21,9 @@ process GBLOCKS {
         ln -s "\${fasta}" \$file_base_name  
         num_seq=\$(cat \${fasta} | grep \\> | wc -l)
         
-        b1=\$(awk "BEGIN {printf \\"%.0f\\", ${params.trim_alignmet_b1} * \$num_seq + 0.5}")
+        b1=\$(awk "BEGIN {printf \\"%.0f\\", ${task.ext.gblocks_b1} * \$num_seq + 0.5}")
         
-        b2=\$(awk "BEGIN {printf \\"%.0f\\", ${params.trim_alignmet_b1} * \$num_seq}")
+        b2=\$(awk "BEGIN {printf \\"%.0f\\", ${task.ext.gblocks_b2} * \$num_seq}")
         
         if [ \$b2 -lt \$b1 ]
         then
