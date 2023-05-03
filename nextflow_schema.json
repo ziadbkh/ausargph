@@ -75,29 +75,25 @@
                     "description": "'raxml', 'phyml', 'iqtree'.",
                     "default": "raxml",
                     "fa_icon": "fas fa-question-circle",
-                    "enum": ["raxml", "phyml", "iqtree"],
-                    "hidden": false
+                    "enum": ["raxml", "phyml", "iqtree"]
                 },
                 "trim_alignment": {
                     "type": "boolean",
                     "description": ".",
                     "default": true,
-                    "fa_icon": "fas fa-question-circle",
-                    "hidden": false
+                    "fa_icon": "fas fa-question-circle"
                 },
                 "trimmed": {
                     "type": "boolean",
                     "description": ".",
                     "default": true,
-                    "fa_icon": "fas fa-question-circle",
-                    "hidden": false
+                    "fa_icon": "fas fa-question-circle"
                 },
                 "batching_size": {
                     "type": "integer",
                     "description": ".",
                     "default": 250,
-                    "fa_icon": "fas fa-question-circle",
-                    "hidden": false
+                    "fa_icon": "fas fa-question-circle"
                 }
                 
             }
