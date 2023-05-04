@@ -348,12 +348,12 @@ workflow AUSARGPH {
 
 
     if (params.tree_method == 'raxml'){
-        ch_all_trees = RAXML.out.tree_bipartitions
+        ch_all_trees = RAXML.out.tree_bipartitions.toSortedList()
 
     }else if (params.tree_method == 'phyml'){
         
     }else if (params.tree_method == 'iqtree'){
-        ch_all_trees = RAXML.out.contree
+        ch_all_trees = RAXML.out.contree.toSortedList()
     }
 
     MERGE_TREES(
