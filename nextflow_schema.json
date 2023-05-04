@@ -73,6 +73,7 @@
                 "tree_method": {
                     "type": "string",
                     "description": "'raxml', 'phyml', 'iqtree'.",
+                    "help_text": "Choose the preferred tree estimation method for individual locus trees. All methods should provide qualitatively identical results. Suggested Usage: iqtree",
                     "default": "raxml",
                     "fa_icon": "fas fa-question-circle",
                     "enum": ["raxml", "phyml", "iqtree"]
@@ -530,8 +531,8 @@
                 "phylogeny_make_alignments_minsamp": {
                     "type": "integer",
                     "default": 4,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Minimum number of samples to constitute an alignment",
+                    "help_text": "Some phylogeny building methods rely on a minimum number of samples in an alignment. To estimate bootstraps for a genetree or include a genetree in an ASTRAL analysis, the minimum number of samples is 4. Suggested Usage: 4",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
@@ -1131,20 +1132,20 @@
             "type": "object",
             "fa_icon": "fa-solid fa-arrow-progress",
             "description": "The configurations of the process bbmap_filter.",
-            "help_text": "",
+            "help_text": "See the [bbmap guide](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbmap-guide/) for more information",
             "properties": {
                 "bbmap_filter_minid": {
                     "type": "number",
                     "default": 0.75,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Minimum identity to reference sequence to retain a read",
+                    "help_text": "Discards reads that do not map to a reference target with at least the indicated identity score. This was designed to quickly filter off-target reads such as mtDNA. Suggested Usage: 0.75",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "bbmap_filter_mem": {
-                    "type": "number",
-                    "default": 2.0,
-                    "description": "",
+                    "type": "integer",
+                    "default": 2,
+                    "description": "Specify memomry use for mapping/filtering (Gb)",
                     "help_text": "",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
@@ -1311,37 +1312,37 @@
             "type": "object",
             "fa_icon": "fa-solid fa-arrow-progress",
             "description": "The configurations of the process trimmomatic.",
-            "help_text": "",
+            "help_text": "See [Trimmomatic on Github](https://github.com/usadellab/Trimmomatic) for more information",
             "properties": {
                 "trimmomatic_clean_minlength": {
-                    "type": "number",
-                    "default": 36.0,
-                    "description": "",
-                    "help_text": "",
+                    "type": "integer",
+                    "default": 36,
+                    "description": "Minimum read length to be retained after trimming",
+                    "help_text": "Discard reads shorter than this minimum threshold after adaptor/barcode trimming. Suggested Usage: 36",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "trimmomatic_clean_trail": {
-                    "type": "number",
-                    "default": 3.0,
-                    "description": "",
-                    "help_text": "",
+                    "type": "integer",
+                    "default": 3,
+                    "description": "Remove trailing bases below indicated quality",
+                    "help_text": "Discard trailing bases below this minimum quality threshold. Suggested Usage: 3",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "trimmomatic_clean_head": {
-                    "type": "number",
-                    "default": 3.0,
-                    "description": "",
-                    "help_text": "",
+                    "type": "integer",
+                    "default": 3,
+                    "description": "Remove leading bases below indicated quality",
+                    "help_text": "Discard leading bases below this minimum quality threshold.  Suggested Usage: 3",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "trimmomatic_clean_qual": {
-                    "type": "number",
-                    "default": 15.0,
-                    "description": "",
-                    "help_text": "",
+                    "type": "integer",
+                    "default": 15,
+                    "description": "Minimum quality score of 4-base sliding window",
+                    "help_text": "Cut the read when the 4-base sliding window quality score drops below this threshold.  Suggested Usage: 15",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
@@ -1433,37 +1434,37 @@
             "type": "object",
             "fa_icon": "fa-solid fa-arrow-progress",
             "description": "The configurations of the process gblocks.",
-            "help_text": "",
+            "help_text": "See the [Gblocks Manual](https://home.cc.umanitoba.ca/~psgendb/doc/Castresana/Gblocks_documentation.html) for more information",
             "properties": {
                  "gblocks_b1": {
                     "type": "number",
                     "default": 0.5,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Minimum number of sequences to be identified as a conserved site",
+                    "help_text": "This establishes the minimum threshold for identifying a conserved site. The value must be greater than half the number of sequences, e.g. min value is 0.5 and we'll round that up",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "gblocks_b2": {
                     "type": "number",
                     "default": 0.85,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Minimum number of sequences to be identified as a flanking site",
+                    "help_text": "Flanking sites are assessed until they make a series of conserved positions at both flanks relative to the contiguous nonconserved sites. This value must be equal to or greater than the value of b1",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "gblocks_b3": {
-                    "type": "number",
+                    "type": "integer",
                     "default": 8,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Maximum number of contiguous nonconserved sites allowed",
+                    "help_text": "Stretches of contiguous nonconserved sites greater than b3 are rejected. Greater b3 values increase the selected number of positions",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "gblocks_b4": {
                     "type": "number",
                     "default": 10,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Minimum length of a sequence block after gap cleaning",
+                    "help_text": "After gap cleaning, sequence blocks less than the indicated value are rejected",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
@@ -1547,21 +1548,21 @@
             "type": "object",
             "fa_icon": "fa-solid fa-arrow-progress",
             "description": "The configurations of the process trinity.",
-            "help_text": "",
+            "help_text": "See the [Trinity Wiki](https://github.com/trinityrnaseq/trinityrnaseq/wiki) for more information",
             "properties": {
                 "trinity_normalize_reads": {
                     "type": "boolean",
                     "default": false,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Normalize the read pool, discarding excess coverage",
+                    "help_text": "Depending on the sequencing effort, there may be excess reads (above desired coverage) that will slow down computation by requiring additional memory. New versions of trinity normalize reads do this by default, and it's highly recommended here.",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "trinity_processed_header": {
                     "type": "string",
                     "default": "contig",
-                    "description": "",
-                    "help_text": "",
+                    "description": "Prefix for a contig of assembled reads",
+                    "help_text": "Naming convention for assembled contigs. Suggested Usage: contig",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
@@ -1799,13 +1800,13 @@
             "type": "object",
             "fa_icon": "fa-solid fa-arrow-progress",
             "description": "The configurations of the process mafft.",
-            "help_text": "",
+            "help_text": "See the [MAFFT Manual](https://mafft.cbrc.jp/alignment/software/manual/manual.html) for more information",
             "properties": {
                 "mafft_maxiterate": {
                     "type": "integer",
                     "default": 1000,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Number of cycles of iterative refinement",
+                    "help_text": "Iterative refinement helps to improve the alignment process, at the cost of additional time. 1000 iterations is sufficient for most exercises",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
@@ -1897,21 +1898,21 @@
             "type": "object",
             "fa_icon": "fa-solid fa-arrow-progress",
             "description": "The configurations of the process blat.",
-            "help_text": "",
+            "help_text": "See the [blat User Guide](https://genome.ucsc.edu/goldenpath/help/blatSpec.html) for more information",
             "properties": {
                 "blat_parser_match": {
                     "type": "number",
                     "default": 80.0,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Minimum required percent (0-100) match between contig and target",
+                    "help_text": "Discards contig-to-target matches below minimum threshold provided. Values closer to 100 require greater similarity. Suggested Usage: 80",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
                 "blat_parser_evalue": {
                     "type": "number",
                     "default": 1e-10,
-                    "description": "",
-                    "help_text": "",
+                    "description": "Minimum required e-value for match between contig and target",
+                    "help_text": "Discards contig-to-target matches greater than threshold provided. Values closer to 0 (smaller) require greater similarity. Suggested Usage: 1e-10",
                     "fa_icon": "fa fa-cog",
                     "hidden": true
                 },
@@ -1954,7 +1955,7 @@
             "type": "object",
             "fa_icon": "fa-solid fa-arrow-progress",
             "description": "The configurations of the process pear.",
-            "help_text": "",
+            "help_text": "See the [PEAR Manual](https://cme.h-its.org/exelixis/web/software/pear/doc.html) for more information",
             "properties": {
                 "pear_args": {
                     "type": "string",
