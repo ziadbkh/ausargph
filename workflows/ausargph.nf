@@ -63,7 +63,10 @@ include { CONVERT_PHYML } from '../modules/local/convert_phyml'
 include { RAXML } from '../modules/local/raxml'
 include { SED } from '../modules/local/check_me_sed'
 include { BBMAP_REFORMAT_Z } from '../modules/local/bbmap_reformat_z.nf'
+include { MERGE_TREES } from '../modules/local/merge_trees.nf'
+include { ASTER } from '../modules/local/aster.nf'
 
+//include 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     IMPORT NF-CORE MODULES/SUBWORKFLOWS
@@ -350,38 +353,16 @@ workflow AUSARGPH {
     }else if (params.tree_method == 'phyml'){
         
     }else if (params.tree_method == 'iqtree'){
-        ch_all_trees = RAXML.out.tree_bipartitions
+        ch_all_trees = RAXML.out.contree
     }
 
-
-
-
-
- /*   
-    if (params.tree_method == 'raxml'){
-        CONVERT_PHYML(
-            ch_alignment
-        )
-
-        RAXML(
-            CONVERT_PHYML.out.converted_phyml
-        )
-
-    }else if (params.tree_method == 'phyml'){
-        
-    }else if (params.tree_method == 'iqtree'){
-        
-    }
-
-		
-
-    MACSE(
-        ch_alignment
+    MERGE_TREES(
+        ch_all_trees
     )
-    PERL_CLEANUP(
-      MACSE.out.nt_fasta
+
+    ASTER(
+        MERGE_TREES.out.merged_trees
     )
-*/
 }
 
 /*

@@ -1,5 +1,5 @@
 process ASTER {
-    tag "Final tree"
+    tag "Final Tree"
 
     conda (params.enable_conda ? "conda-forge::python=3.8.3" : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -10,7 +10,7 @@ process ASTER {
     path all_trees
     
     output:
-    path("aster_tree_final"), emit: aggregated_tree
+    path("aster_tree_final"), emit: final_tree
     path "versions.yml", emit: versions
 
     script:
@@ -23,7 +23,7 @@ process ASTER {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        BBMAP - reformat.sh: \$(reformat.sh -version 2>&1 | sed -n '2 p' | sed 's/BBMap version //g')
+        BBMAP - reformat.sh: 
     END_VERSIONS
     """
 }
