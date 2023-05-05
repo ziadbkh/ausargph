@@ -339,15 +339,6 @@ workflow AUSARGPH {
         RAXML(
             BBMAP_REFORMAT_Z.out.reformated
         )
-
-    }else if (params.tree_method == 'phyml'){
-        
-    }else if (params.tree_method == 'iqtree'){
-        
-    }
-
-
-    if (params.tree_method == 'raxml'){
         ch_all_trees = RAXML.out.tree_bipartitions.toSortedList()
 
     }else if (params.tree_method == 'phyml'){
@@ -356,6 +347,10 @@ workflow AUSARGPH {
         ch_all_trees = RAXML.out.contree.toSortedList()
     }
 
+    RAXML.out.tree_bipartitions.view()
+    
+
+   
     MERGE_TREES(
         ch_all_trees
     )
