@@ -17,7 +17,7 @@ process MERGE_TREES {
     
     """
     for tree in ${tree_list.join(' ')}; do
-        cat $tree >> AllLoci.trees       
+        cat \$tree >> AllLoci.trees       
     done
 
 
