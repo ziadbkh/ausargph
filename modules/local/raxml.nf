@@ -10,11 +10,11 @@ process RAXML {
     val(fasta_ls)
     
     output:
-    path("RAxML_info*"), emit: tree_info
-    path("RAxML_bootstrap*"), emit: tree_bootstrap
-    path("RAxML_bipartitionsBranchLabels*"), emit: tree_bipartitions_branch_labels
-    path("RAxML_bipartitions*"), emit: tree_bipartitions
-    path("RAxML_bestTree*"), emit: best_tree
+    path("RAxML_info.*"), emit: tree_info
+    path("RAxML_bootstrap.*"), emit: tree_bootstrap
+    path("RAxML_bipartitionsBranchLabels.*"), emit: tree_bipartitions_branch_labels
+    path("RAxML_bipartitions.*"), emit: tree_bipartitions
+    path("RAxML_bestTree.*"), emit: best_tree
     path "versions.yml", emit: versions
 
     script:
