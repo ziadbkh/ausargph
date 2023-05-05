@@ -24,7 +24,7 @@ process MERGE_TREES {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        BBMAP - reformat.sh: \$(reformat.sh -version 2>&1 | sed -n '2 p' | sed 's/BBMap version //g')
+        BBMAP - reformat.sh: 
     END_VERSIONS
     """
 }
