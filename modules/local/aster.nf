@@ -4,7 +4,7 @@ process ASTER {
     conda (params.enable_conda ? "conda-forge::python=3.8.3" : null)
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         'https://depot.galaxyproject.org/singularity/astral-tree%3A5.7.8--hdfd78af_0' :
-        'quay.io/biocontainers/python:3.8.3' }"
+        'quay.io/biocontainers/astral-tree:5.7.8--hdfd78af_0' }"
 
     input:
     path all_trees

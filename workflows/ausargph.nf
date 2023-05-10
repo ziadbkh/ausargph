@@ -97,6 +97,7 @@ workflow AUSARGPH {
         
     //println zz;
 
+
     Channel
         .fromPath(params.reference_genome, checkIfExists:true)
         .collect()
@@ -358,6 +359,8 @@ workflow AUSARGPH {
     ASTER(
         MERGE_TREES.out.merged_trees
     )
+
+
 }
 
 /*
