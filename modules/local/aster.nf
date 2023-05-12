@@ -17,7 +17,7 @@ process ASTER {
     //locus = fasta.getBaseName().split('.')[0]
     
     """
-    astral-hybrid \
+    astral \
     -i ${all_trees} \
     -o aster_tree_final
 
