@@ -45,8 +45,8 @@ The [***Aus***tralian ***A***mphibian and ***R***eptile ***G***enomics](https://
 -->
 
 The pipeline works from raw sequence data (generally stored as **.fastq.gz**) through to a first-pass species tree. Below are the general steps with associated tools indicated (in brackets).  
-1. *Read Cleaning*: 
-   FWD/REV read concatenation (`bash`), deduplication ([`BBMap`](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbmap-guide/)), adapter/barcode removal ([`Trimmomatic`](https://github.com/usadellab/Trimmomatic)), pairing ([`PEAR`](https://cme.h-its.org/exelixis/web/software/pear/doc.html)), and filtering ([`BBMap`](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbmap-guide/)).
+1. *Read Cleaning*:   
+   + FWD/REV read concatenation (`bash`), deduplication ([`BBMap`](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbmap-guide/)), adapter/barcode removal ([`Trimmomatic`](https://github.com/usadellab/Trimmomatic)), pairing ([`PEAR`](https://cme.h-its.org/exelixis/web/software/pear/doc.html)), and filtering ([`BBMap`](https://jgi.doe.gov/data-and-tools/software-tools/bbtools/bb-tools-user-guide/bbmap-guide/)).
 2. *Assembly*:   
    + read assembly to contigs ([`Trinity`](https://github.com/trinityrnaseq/trinityrnaseq/wiki)).
 3. *Isolating Targets*:  
@@ -56,7 +56,7 @@ The pipeline works from raw sequence data (generally stored as **.fastq.gz**) th
 5. *Tree Building*:   
    + gene tree estimation ([`RAxML`](https://cme.h-its.org/exelixis/web/software/raxml/) or [`IQTREE`](http://www.iqtree.org/)), and species tree estimation ([`ASTRAL`](https://github.com/chaoszhang/ASTER)).  
 
-The above steps produce a series of output files and directories including alignments, gene trees, and a species tree. 
+The above steps produce a series of output files and directories including alignments, gene trees, and a species tree.
 
 ## Quick Start
 
