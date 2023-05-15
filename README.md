@@ -85,6 +85,31 @@ The above steps produce a series of output files and directories including align
    nextflow run nf-core/ausargph --input samplesheet.csv --outdir <OUTDIR> --genome GRCh37 -profile <docker/singularity/podman/shifter/charliecloud/conda/institute>
    ```
 
+## Detailed Summary
+
+For users interested in a more detailed summary of the pipeline, the steps are as follows:  
+1. Generate a *sample_info* sheet.
+2. Concatenate & Collate  
+   + What we need as input is our library metadata file (the one you submitted with your samples for sequencing), in a .csv format and a directory where we're storing all our *fastq.gz* read files. Once we know those locations we can run the function *concatenate_collate*. What this does is (**1**) identifies all the raw read files, (**2**) extracts and combines information from the file names and the metadata file, (**3**) concatenates all forward (*R1*) and reverse (*R2*) read files for each sample separately. 
+3. Dedupe/Clean/Filter 
+   + This step first removes identical duplicate sequences from your raw reads using `BBMap` and *dedupe.sh*. It quickly reformats the deduplicated reads back into two read files, then removes lingering adaptor and barcode sequences using `Trimmomatic` and pairs up the raw reads using `PEAR`. Finally, it maps the reads against a reference file of phylogenetically diverse target sequences using `BBMap` and *bbmap.sh*, and removes any reads which do not match any targets with at least a user specified minimum identity threshold (*--minid*). 
+4. Assembly  
+   + We use [`Trinity`](https://github.com/trinityrnaseq/trinityrnaseq/wiki) to assemble the reads into contigs. This is both a memory *and* CPU intensive. Best summary of the involved steps can be found at the `Trinity` wiki. 
+5. Contig Matching
+   + This step uses [`blat`] to match assembled contigs to our target sequences. We opted for `blat` instead of alternatives like `BLAST` because it is fast and less memory intensive. Matches are identified based on the user provided e-value (how likely the contig is to actually be the target), and are categorized as:
+   + *easy_recip_match*: 1-to-1 unique match between contig and targeted locus
+   + *complicated_recip_match*: 1-to-1 non-unique match, in which one targeted locus matches to multiple contigs
+   + *ditched_no_recip_match*: a case in which the contig matches to the targeted locus, but it isn't the best match
+   + *ditched_no_match*: a case in which the contig matches to the targeted locus, but the locus doesn't match to the contig
+   + *ditched_too_many_matches*: a case in which one contig has multiple good matches to multiple targeted loci
+6. Building PRGs  
+   + This step allows us to choose which contig-to-probe matches we would like to keep (one of two options *easy_recip_match*, or *complicated_recip_match*), and then generates a Pseudo-Reference Genome for each sample. The PRG is just a fasta file per sample with every matched target sequence included. 
+7. Rough Alignment  
+   + 
+
+From this, we can further choose which matches we want to keep and which to discard, but that will be in the next step.
+
+
 ## Documentation
 
 The nf-core/ausargph pipeline comes with documentation about the pipeline [usage](https://nf-co.re/ausargph/usage), [parameters](https://nf-co.re/ausargph/parameters) and [output](https://nf-co.re/ausargph/output).
