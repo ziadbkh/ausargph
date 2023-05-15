@@ -27,7 +27,16 @@ The pipeline is built using [Nextflow](https://www.nextflow.io), a workflow tool
 
 On release, automated continuous integration tests run the pipeline on a full-sized dataset on the AWS cloud infrastructure. This ensures that the pipeline runs on AWS, has sensible resource allocation defaults set to run on real-world datasets, and permits the persistent storage of results to benchmark between pipeline releases and other analysis sources. The results obtained from the full-sized test can be viewed on the [nf-core website](https://nf-co.re/ausargph/results).
 
-## Pipeline summary
+## AusARG Background
+
+<!-- brief background on the AusARG program and phylgenomics initiative -->
+
+![AusARG_logo](docs/images/AusARG_logo_transparent.png)
+
+The [***Aus***tralian ***A***mphibian and ***R***eptile ***G***enomics](https://ausargenomics.com/) (`AusARG`) initiative is a national collaborative project aiming to facilitate the development of genomics resources for Australia's unique amphibian and reptile fauna. This `Nextflow` pipeline has been developed as part of the `AusARG Phylogenomics Working Group` with the goal of collecting a consistent set of phylogenomic data for all of Australia's frogs and reptiles.
+
+
+## Pipeline Summary
 
 <!-- TODO nf-core: Fill in short bullet-pointed list of the default steps in the pipeline -->
 
