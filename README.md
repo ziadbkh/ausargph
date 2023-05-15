@@ -31,7 +31,7 @@ On release, automated continuous integration tests run the pipeline on a full-si
 
 <!-- brief background on the AusARG program and phylgenomics initiative -->
 
-![AusARG_logo](docs/images/AusARG_logo_transparent.png){width=25% height=25%}
+![AusARG_logo](docs/images/AusARG_logo_transparent.png){width=25%}
 
 The [***Aus***tralian ***A***mphibian and ***R***eptile ***G***enomics](https://ausargenomics.com/) (`AusARG`) initiative is a national collaborative project aiming to facilitate the development of genomics resources for Australia's unique amphibian and reptile fauna. This `Nextflow` pipeline has been developed as part of the `AusARG Phylogenomics Working Group` with the goal of collecting a consistent set of phylogenomic data for all of Australia's frogs and reptiles.
 
