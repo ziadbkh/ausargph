@@ -105,9 +105,13 @@ For users interested in a more detailed summary of the pipeline, the steps are a
 6. Building PRGs  
    + This step allows us to choose which contig-to-probe matches we would like to keep (one of two options *easy_recip_match*, or *complicated_recip_match*), and then generates a Pseudo-Reference Genome for each sample. The PRG is just a fasta file per sample with every matched target sequence included. 
 7. Rough Alignment  
-   + 
-
-From this, we can further choose which matches we want to keep and which to discard, but that will be in the next step.
+   + This step will run across all available sample PRGs and pull matched contigs into target alignments. One parameter to consider is the *--minsamp* flag, which determines what is the minimum number of samples required to build an alignment. Phylogeny building methods like RAxML and IQTREE cannot estimate bootstrap values for trees with less than 4 samples. Similarly, shortcut coalescent methods like ASTRAL require quartets to determine the bipartitions, so having *--minsamp* < 4 is not useful.
+8. Proper Alignment
+   + Rough alignments from the above step are passed through `MAFFT` to first correcting the direction of the alignment, then aligns the sequences. The alignments can be further process via `Gblocks` which will trim and realign sequences, however be aware that it is very conservative. Sequences of <100 consecutive bases are removed from alignments with `BBMap`. 
+9. Gene Trees
+   + For each alignment we estimate a gene tree using `RAxML` or `IQTREE`. By default `RAxML` will use a *GTR* model, search for the best tree, and run 100 bootstrap replicates. IQTREE uses *ModelFinder* to fit a set of models and apply the best fitting model, searches for the best tree, then fits 1000 ultrafast bootstrap. 
+10. Species Tree
+   + Genetree outputs are concatenated into a single file and we esimate the species tree from input gene trees using the hybrid-ASTRAL approach. This quartet-based summary coalescent method incorporates branch lengths and support values as weights into the species tree search. 
 
 
 ## Documentation
