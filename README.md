@@ -110,7 +110,7 @@ For users interested in a more detailed summary of the pipeline, the steps are a
    + Rough alignments from the above step are passed through `MAFFT` to first correcting the direction of the alignment, then aligns the sequences. The alignments can be further process via `Gblocks` which will trim and realign sequences, however be aware that it is very conservative. Sequences of <100 consecutive bases are removed from alignments with `BBMap`. 
 9. Gene Trees
    + For each alignment we estimate a gene tree using `RAxML` or `IQTREE`. By default `RAxML` will use a *GTR* model, search for the best tree, and run 100 bootstrap replicates. IQTREE uses *ModelFinder* to fit a set of models and apply the best fitting model, searches for the best tree, then fits 1000 ultrafast bootstrap. 
-10. Species Tree
+10. Species Tree  
    + Genetree outputs are concatenated into a single file and we esimate the species tree from input gene trees using the hybrid-ASTRAL approach. This quartet-based summary coalescent method incorporates branch lengths and support values as weights into the species tree search. 
 
 
