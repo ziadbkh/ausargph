@@ -1,4 +1,4 @@
 reports:
-  "aster/aster_tree_final":
+  "**/aster_tree_final":
     display: "Asater report"
     mimeType: "txt"
