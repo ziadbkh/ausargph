@@ -275,7 +275,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the output of process 'phylogeny_make_alignments' will be saved in the output directory.",
-                    "help_text": "",
+                    "help_text": "process output is a collection of raw alignments, where each file represents a single locus and contains unaligned sequence data for all recovered samples",
                     "fa_icon": "fas fa-copy",
                     "hidden": true
                 },
@@ -283,7 +283,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the output of process 'trinity_postprocessing' will be saved in the output directory.",
-                    "help_text": "",
+                    "help_text": "process output for each sample is a single fasta file containing all assembled contigs, as well as a directory with all Trinity output files (inchworm, jellyfish, read normalization files). Each sample directory can be very large (>3G), so we do not recommend retaining these files.",
                     "fa_icon": "fas fa-copy",
                     "hidden": true
                 },
@@ -291,7 +291,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the output of process 'trimmomatic_clean_pe' will be saved in the output directory.",
-                    "help_text": "",
+                    "help_text": "process output for each sample are forward and reverse, paired and unpaired fq.gz files (4 total). These are the result of leading/trailing read trimming.",
                     "fa_icon": "fas fa-copy",
                     "hidden": true
                 },
@@ -299,7 +299,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the output of process 'trimmomatic_clean_se' will be saved in the output directory.",
-                    "help_text": "",
+                    "help_text": "process output for each sample is a single unpaired fq.gz file. This is the result of leading/trailing read trimming.",
                     "fa_icon": "fas fa-copy",
                     "hidden": true
                 },
@@ -323,7 +323,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the output of process 'quality_2_assembly' will be saved in the output directory.",
-                    "help_text": "",
+                    "help_text": "process output for each sample is a csv file summarizing the target coverage (number of contigs, AHE, UCE, gene tallies)",
                     "fa_icon": "fas fa-copy",
                     "hidden": true
                 },
@@ -379,7 +379,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the output of process 'bbmap_dedupe' will be saved in the output directory.",
-                    "help_text": "",
+                    "help_text": "process output for each sample are a fq.gz file of deduplicated reads, and another fq.gz file of duplicates",
                     "fa_icon": "fas fa-copy",
                     "hidden": true
                 },
@@ -387,7 +387,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the output of process 'bbmap_filter' will be saved in the output directory.",
-                    "help_text": "",
+                    "help_text": "process output for each sample are forward and reverse reads that have been filtered against a set of phylogenetically informed targets",
                     "fa_icon": "fas fa-copy",
                     "hidden": true
                 },
@@ -427,7 +427,7 @@
                     "type": "boolean",
                     "default": false,
                     "description": "If enabled, the output of process 'make_prg' will be saved in the output directory.",
-                    "help_text": "",
+                    "help_text": "process output for each sample is a single Pseudo-Reference-Genome fasta file holding the successfully assembled and annotated targets. These are worthile to retain.",
                     "fa_icon": "fas fa-copy",
                     "hidden": true
                 },
