@@ -16,7 +16,7 @@
                     "type": "string",
                     "format": "file-path",
                     "mimetype": "text/csv",
-                    "default": "/scratch/director2172/ziadbkh/my_data/ausarg/ian_data_t2/Extra_Test_Samples/samples.csv",
+                    "default": "/scratch/pawsey0862/ziadbkh/ausarg/ian_data_t2/Extra_Test_Samples/samples.csv",
                     "schema": "assets/schema_input.json",
                     "description": "Path to comma-separated file containing information about the samples in the experiment.",
                     "help_text": "You will need to create a design file with information about the samples in your experiment before running the pipeline. Use this parameter to specify its location. It has to be a comma-separated file with 3 columns, and a header row. See [usage docs](https://nf-co.re/ausargph/usage#samplesheet-input).",
@@ -24,7 +24,7 @@
                 },
                 "outdir": {
                     "type": "string",
-                    "default":"/scratch/director2172/ziadbkh/my_data/ausarg/output_pip/",
+                    "default":"/scratch/pawsey0862/ziadbkh/ausarg/output_pip/",
                     "format": "directory-path",
                     "description": "The output directory where the results will be saved. You have to use absolute paths to storage on Cloud infrastructure.",
                     "fa_icon": "fas fa-folder-open"
@@ -49,7 +49,7 @@
                     "type": "string",
                     "format": "file-path",
                     "mimetype": "text/plain",
-                    "default":"/scratch/director2172/ziadbkh/my_data/ausarg/Squamate_AHE_UCE_genes_Pygopodidae.fasta",
+                    "default":"/scratch/pawsey0862/ziadbkh/ausarg/Squamate_AHE_UCE_genes_Pygopodidae.fasta",
                     "pattern": "^\\S+\\.fn?a(sta)?(\\.gz)?$",
                     "description": "Path to FASTA genome file.",
                     "help_text": "",
@@ -57,7 +57,7 @@
                 },
                 "blat_db": {
                     "type": "string",
-                    "default": "/scratch/director2172/ziadbkh/my_data/ausarg/squamate_AHE_UCE_genes_unique.flipped.fasta",
+                    "default": "/scratch/pawsey0862/ziadbkh/ausarg/squamate_AHE_UCE_genes_unique.flipped.fasta",
                     "format": "file-path",
                     "description": "Path to the directory containing blat database",
                     "help_text": "",
