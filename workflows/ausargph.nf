@@ -152,7 +152,7 @@ workflow AUSARGPH {
 
     ch_prepared_fastq_singles
     .mix(CONCATENATE_RAW.out.concatenated
-            .map{[it[0], it[1], it[2]]}
+            .map{[it[0], [it[1], it[2]]]}
     )
     .set{ch_prepared_fastq}
     
