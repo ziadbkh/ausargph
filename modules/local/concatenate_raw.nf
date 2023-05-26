@@ -7,7 +7,7 @@ process CONCATENATE_RAW {
         'quay.io/biocontainers/python:3.8.3' }"
 
     input:
-    tuple val(sample_id), val(fastq1), val(fastq2)
+    tuple val(sample_id), path(fastq1), path(fastq2)
     val(name_suffix)
     
     output:
