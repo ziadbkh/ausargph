@@ -8,10 +8,10 @@ class WorkflowAusargph {
     // Check and validate parameters
     //
     public static void initialise(params, log) {
-        if (!params.meta) {
+        /*if (!params.meta) {
             log.error "Sample sheet file is not specified with e.g. '--meta samples.csv' or via a detectable config file."
             System.exit(1)
-        }
+        }*/
 
         if (!params.blat_db) {
             log.error "Blat Database fasta file is not specified with e.g. '--blast_db blatdb.fasta' or via a detectable config file."

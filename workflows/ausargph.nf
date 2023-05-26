@@ -39,6 +39,7 @@ include { BBMAP_REFORMAT } from '../modules/local/bbmap_reformat'
 include { TRIMMOMATIC } from '../modules/local/trimmomatic'
 include { PEAR } from '../modules/local/pear'
 include { CONCATENATE } from '../modules/local/concatenate'
+include { CONCATENATE_RAW } from '../modules/local/concatenate_raw'
 include { CONCATENATE as CONCATENATE2 } from '../modules/local/concatenate'
 include { CONCATENATE as CONCATENATE3 } from '../modules/local/concatenate'
 include {TRIMMOMATIC_CLEAN_PE} from '../modules/local/trimmomatic_clean_pe'
@@ -93,11 +94,68 @@ workflow AUSARGPH {
     // SUBWORKFLOW: Read in samplesheet, validate and stage input files
     //
     
-    //zz = { check_max( params.bbmap_filter_cpus    * task.attempt, 'cpus' ) }
-        
-    //println zz;
 
 
+    Channel
+        .fromPath(params.input, checkIfExists:true)
+        .splitCsv(header:true, strip:true)
+        .map {row -> tuple(
+                row.sample_id, row.read1, row.read2, 
+                row.adaptor1, row.adaptor2, row.barcode1, row.barcode2, row.lineage
+                ) 
+             }
+        .set{ch_sample_sheet_raw}
+
+    //ch_sample_sheet.map{it -> [it[0], [it[1][0], it[1][1], it[1][2], it[1][3]]]}.set{ch_meta}
+    //ch_sample_sheet.map{it -> [it[0], it[1][4]]}.set{ch_lineage}
+    //ch_sample_sheet.view()
+
+    ch_sample_sheet_raw.groupTuple().map{
+        if (it[3].unique().size() != 1){
+            exit 1, "Adaptor1 for the sample ${it[0]} should be unique across all records for this sample!"
+        }
+        if (it[4].unique().size() != 1){
+            exit 1, "Adaptor2 for the sample ${it[0]} should be unique across all records for this sample!"
+        }
+        if (it[5].unique().size() != 1){
+            exit 1, "barcode1 for the sample ${it[0]} should be unique across all records for this sample!"
+        }
+        if (it[6].unique().size() != 1){
+            exit 1, "barcode2 for the sample ${it[0]} should be unique across all records for this sample!"
+        }
+        [it[0], it[1], it[2], it[3][0], it[4][0], it[5][0], it[6][0], it[7][0]]
+    }.branch{
+        singles: it[1].size() == 1
+        multiples: it[1].size() > 1
+    }.set{
+        ch_sample_sheet_prepared
+    }
+
+    ch_sample_sheet_prepared.singles
+    .mix(ch_sample_sheet_prepared.multiples)
+    .map{[it[0], it[7]]}.set{ch_lineage}
+    
+    ch_sample_sheet_prepared.singles
+    .mix(ch_sample_sheet_prepared.multiples)
+    .map{it -> [it[0], [it[3], it[4], it[5], it[6]]]}.set{ch_meta}
+    
+
+    ch_sample_sheet_prepared.singles
+    .map{it -> [it[0], [it[1][0], it[2][0]]]}
+    .set{ch_prepared_fastq_singles}
+
+    CONCATENATE_RAW(
+        ch_sample_sheet_prepared.multiples
+        .map{it -> [it[0], it[1], it[2]]}
+        , Channel.value("concatenated")
+    )
+
+    ch_prepared_fastq_singles
+    .mix(CONCATENATE_RAW.out.concatenated
+            .map{[it[0], it[1], it[2]]}
+    )
+    .set{ch_prepared_fastq}
+    
     Channel
         .fromPath(params.reference_genome, checkIfExists:true)
         .collect()
@@ -107,46 +165,6 @@ workflow AUSARGPH {
         .fromPath(params.blat_db, checkIfExists:true)
         .collect()
         .set{ch_blat_db}
-
-    //ch_reference_genome.view()
-    if (false){
-        Channel
-        .fromPath(params.input + '*.fastq')
-        .map {it -> tuple(it.getFileName().toString().split('_')[0] + '_' + it.getFileName().toString().split('_')[2], it) }
-        .groupTuple(sort:true)
-        .map{it -> tuple(it[0].split('_')[0], it[1]) }
-        .groupTuple()
-        .set{ch_fastq_lanes}
-
-        Channel
-        .fromPath(params.meta)
-        .splitCsv(header:true, strip:true)
-        .map {row -> tuple(row.sample_id, tuple(row.genus, row.species, row.library_id, row.sample_id)) }
-        .set{ch_meta}
-
-        //ch_fastq_lanes.view()
-        //ch_meta.view()
-        //ch_fastq_lanes.join(ch_meta).view()
-
-        PREPARE_SAMPLESHEET(ch_fastq_lanes.join(ch_meta)) 
-    }else{
-        //fix the format
-        Channel
-        .fromFilePairs(params.input + '*_R{1,2}*.fastq.gz', checkIfExists:true)
-        .set{ch_prepared_fastq}
-
-        Channel
-        .fromPath( file( params.meta ) )
-        .splitCsv(header:true, strip:true)
-        .map {row -> tuple(row.sample_id, 
-                           tuple(row.adaptor1, row.adaptor2, row.barcode1, row.barcode2, row.lineage)
-                    ) 
-             }
-        .set{ch_sample_sheet}
-
-        ch_sample_sheet.map{it -> [it[0], [it[1][0], it[1][1], it[1][2], it[1][3]]]}.set{ch_meta}
-        ch_sample_sheet.map{it -> [it[0], it[1][4]]}.set{ch_lineage}
-    }
 
     //ch_meta.view()
     //println("dfdfdf");
